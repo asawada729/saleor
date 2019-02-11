@@ -56,6 +56,7 @@ class Voucher(models.Model):
         decimal_places=settings.DEFAULT_DECIMAL_PLACES)
     # not mandatory fields, usage depends on type
     countries = CountryField(multiple=True, blank=True)
+    all_countries = models.BooleanField(default=False)
     min_amount_spent = MoneyField(
         currency=settings.DEFAULT_CURRENCY,
         max_digits=settings.DEFAULT_MAX_DIGITS,

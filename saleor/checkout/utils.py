@@ -655,7 +655,7 @@ def _get_shipping_voucher_discount_for_cart(voucher, cart):
     not_valid_for_country = all([
         voucher.countries, ANY_COUNTRY not in voucher.countries,
         cart.shipping_address.country.code not in voucher.countries])
-    if not_valid_for_country:
+    if not_valid_for_country and not voucher.all_countries:
         msg = pgettext(
             'Voucher not applicable',
             'This offer is not valid in your country.')
